@@ -30,7 +30,7 @@ const Login = () => {
                     label="Email"
                     type="email"
                 />
-                {view ===MODE.SIGNUP && 
+                {view === MODE.SIGNUP && 
                     <Input 
                         id="username"
                         label="Username"
