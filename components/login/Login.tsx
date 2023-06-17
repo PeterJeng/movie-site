@@ -2,6 +2,7 @@ import { useCallback, useState } from "react";
 import Button from "../Button";
 import Input from "../Input";
 import { FcGoogle } from "react-icons/fc";
+import axios from 'axios';
 
 enum MODE {
     SIGNIN = 0,
@@ -11,6 +12,10 @@ enum MODE {
 const Login = () => {
     const [view, setView] = useState(MODE.SIGNIN);
 
+    const [email, setEmail] = useState('');
+    const [name, setName] = useState('');
+    const [password, setPassword] = useState('');
+
     const toggleMode = useCallback(() => {
         if (view === MODE.SIGNIN) {
             setView(MODE.SIGNUP)
@@ -18,6 +23,19 @@ const Login = () => {
             setView(MODE.SIGNIN)
         }
     }, [view]);
+
+    const register = useCallback(async () => {
+        try {
+          await axios.post('/api/register', {
+            email,
+            name,
+            password
+          });
+    
+        } catch (error) {
+            console.log(error);
+        }
+      }, [email, name, password]);
 
     return ( 
         <>
@@ -29,21 +47,24 @@ const Login = () => {
                     id="email"
                     label="Email"
                     type="email"
+                    onChange={(e: any) => setEmail(e.target.value)}
                 />
                 {view === MODE.SIGNUP && 
                     <Input 
                         id="username"
                         label="Username"
+                        onChange={(e: any) => setName(e.target.value)}
                     />
                 }
                 <Input 
                     id="password"
                     label="Password"
                     type="password"
+                    onChange={(e: any) => setPassword(e.target.value)}
                 />
                 <Button
                     label={view === MODE.SIGNIN ? 'Sign In' : 'Create an account'}
-                    onClick={() => {}}
+                    onClick={view === MODE.SIGNIN ? () => {} : register}
                 />
                 <hr />
                 <Button
