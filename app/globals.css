@@ -2,14 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply bg-neutral-900 h-full overflow-x-hidden;
-}
-
-#__next {
-  @apply h-full;
-}
-
-html {
-  @apply h-full;
+html,
+body,
+:root {
+  @apply bg-zinc-900 h-full overflow-x-hidden
 }
