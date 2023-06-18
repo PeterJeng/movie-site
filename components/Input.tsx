@@ -21,15 +21,24 @@ const Input: React.FC<InputProps> = ({
     register,
     errors
 }) => {
+    const registerOptions = {
+        required,
+        ...(type === 'email') && { pattern: {
+                value: /\S+@\S+\.\S+/,
+                message: ""
+            }
+        }
+    }
+
     return ( 
         <div className="w-full relative">
             <input 
-                {...register(id, { required })}
+                {...register(id, registerOptions)}
                 id={id}
                 disabled={disabled}
                 placeholder=" "
                 type={type}
-                className="
+                className={`
                     block
                     rounded-md
                     px-6
@@ -43,7 +52,12 @@ const Input: React.FC<InputProps> = ({
                     focus:outline-none
                     focus:ring-0
                     peer
-                "
+                    
+                    ${errors[id] ? 'border-2 border-red-700' : ''}
+                    ${errors[id] ? 'focus:border-red-700' : ''}
+                `}
+                    
+                
             />
             <label
                 className={`
@@ -54,13 +68,13 @@ const Input: React.FC<InputProps> = ({
                     -translate-y-3
                     top-4
                     z-10
-                    origin-[0]
-                    text-zinc-400
+                    origin-[0]        
                     left-6
                     peer-placeholder-shown:scale-100
                     peer-placeholder-shown:translate-y-0
                     peer-focus:scale-75
                     peer-focus:-translate-y-4
+                    ${errors[id] ? 'text-red-500' : 'text-zinc-400'}
                 `}
             >
                 {label}
