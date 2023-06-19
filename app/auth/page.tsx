@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import Container from "@/components/Container";
 import Login from "@/components/login/Login";
 
 const Auth = () => {

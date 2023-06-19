@@ -6,6 +6,8 @@ import {
     useForm
 } from 'react-hook-form';
 import axios from 'axios';
+import { useState } from "react";
+import { toast } from "react-hot-toast";
 
 interface RegisterFormProps {
     toggleMode: () => void;
@@ -14,6 +16,7 @@ interface RegisterFormProps {
 const RegisterForm: React.FC<RegisterFormProps> = ({
     toggleMode
 }) => {
+    const [isLoading, setIsLoading] = useState(false);
     const { register, handleSubmit, formState: { errors } } = useForm<FieldValues>({
         defaultValues: {
             name: '',
@@ -23,6 +26,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
     });
     
     const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+        setIsLoading(true);
         const { email, name, password } = data
 
         try {
@@ -33,7 +37,9 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
           });
     
         } catch (error) {
-            console.error(error);
+            toast.error("Something went wrong.");
+        } finally {
+            setIsLoading(false);
         }
       };
 
@@ -46,12 +52,14 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
                     register={register}
                     errors={errors}
                     required
+                    disabled={isLoading}
                 />
                 <Input 
                     id="name"
                     label="Name"
                     register={register}
                     errors={errors}
+                    disabled={isLoading}
                     required
                 />
                 <Input 
@@ -60,10 +68,12 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
                     type="password"
                     register={register}
                     errors={errors}
+                    disabled={isLoading}
                     required
                 />
                 <Button
                     label="Create Account"
+                    disabled={isLoading}
                     onClick={handleSubmit(onSubmit)}
                 />
                 <hr />

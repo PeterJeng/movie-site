@@ -6,7 +6,10 @@ import {
     SubmitHandler,
     useForm
 } from 'react-hook-form';
-import axios from 'axios';
+import { useState } from "react";
+import { signIn } from "next-auth/react";
+import { toast } from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 interface LoginFormProps {
     toggleMode: () => void
@@ -15,12 +18,35 @@ interface LoginFormProps {
 const LoginForm: React.FC<LoginFormProps> = ({
     toggleMode
 }) => {
+    const router = useRouter();
+    const [isLoading, setIsLoading] = useState(false);
+    
     const { register, handleSubmit, formState: { errors } } = useForm<FieldValues>({
         defaultValues: {
             email: '',
             password: ''
         },
     });
+
+    const onSubmit: SubmitHandler<FieldValues> = (data) => {
+        setIsLoading(true);
+
+        signIn('credentials', {
+            ...data,
+            redirect: false,
+            callbackUrl: '/'
+        })
+        .then((callback) => {
+            if (callback?.error) {
+                toast.error(callback.error);
+            } else {
+                router.push('/');
+            }   
+        })
+        .finally(() => {
+            setIsLoading(false);
+        });
+    }
 
     return ( 
         <div className="flex flex-col gap-4">
@@ -29,6 +55,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
                 label="Email"
                 type="email"
                 register={register}
+                disabled={isLoading}
                 errors={errors}
                 required
             />
@@ -37,17 +64,19 @@ const LoginForm: React.FC<LoginFormProps> = ({
                 label="Password"
                 type="password"
                 register={register}
+                disabled={isLoading}
                 errors={errors}
                 required
             />
             <Button
                 label="Sign In"
-                onClick={() => {}}
+                onClick={handleSubmit(onSubmit)}
+                disabled={isLoading}
             />
             <hr />
             <Button
                 label="Continue with Google"
-                onClick={() => {}}
+                onClick={() => signIn('google')}
                 outline
                 icon={FcGoogle}
             />
