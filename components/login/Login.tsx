@@ -1,34 +1,31 @@
 import { useCallback, useState } from "react";
-import Button from "../Button";
-import Input from "../Input";
-import axios from 'axios';
 import RegisterForm from "../form/RegisterForm";
 import LoginForm from "../form/LoginForm";
 
-enum MODE {
-    SIGNIN = 0,
-    SIGNUP = 1
-} 
+const SIGNIN = 'SignIn';
+const REGISTER = 'Register';
+
+type Variant = 'SignIn' | 'Register';
 
 const Login = () => {
-    const [view, setView] = useState(MODE.SIGNIN);
+    const [view, setView] = useState<Variant>(SIGNIN);
 
     const toggleMode = useCallback(() => {
-        if (view === MODE.SIGNIN) {
-            setView(MODE.SIGNUP)
+        if (view === SIGNIN) {
+            setView(REGISTER)
         } else {
-            setView(MODE.SIGNIN)
+            setView(SIGNIN)
         }
     }, [view]);
 
     return ( 
         <>
             <h2 className="text-white text-4xl mb-8 font-semibold">
-                {view === MODE.SIGNIN ? 'Sign In' : 'Create a new account'}
+                {view === SIGNIN? 'Sign In' : 'Create a new account'}
             </h2>
             <div>
-                {view === MODE.SIGNIN && <LoginForm toggleMode={toggleMode} />}
-                {view === MODE.SIGNUP && <RegisterForm toggleMode={toggleMode}/>}
+                {view === SIGNIN && <LoginForm toggleMode={toggleMode} />}
+                {view === REGISTER && <RegisterForm toggleMode={toggleMode}/>}
             </div>
         </>
      );

@@ -20,7 +20,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
 }) => {
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(false);
-    
+
     const { register, handleSubmit, formState: { errors } } = useForm<FieldValues>({
         defaultValues: {
             email: '',
@@ -33,8 +33,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
 
         signIn('credentials', {
             ...data,
-            redirect: false,
-            callbackUrl: '/'
+            redirect: false
         })
         .then((callback) => {
             if (callback?.error) {

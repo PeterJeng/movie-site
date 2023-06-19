@@ -8,6 +8,8 @@ import {
 import axios from 'axios';
 import { useState } from "react";
 import { toast } from "react-hot-toast";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 interface RegisterFormProps {
     toggleMode: () => void;
@@ -16,6 +18,7 @@ interface RegisterFormProps {
 const RegisterForm: React.FC<RegisterFormProps> = ({
     toggleMode
 }) => {
+    const router = useRouter();
     const [isLoading, setIsLoading] = useState(false);
     const { register, handleSubmit, formState: { errors } } = useForm<FieldValues>({
         defaultValues: {
@@ -35,7 +38,18 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
             name,
             password
           });
-    
+
+          signIn('credentials', {
+            ...data,
+            redirect: false
+            })
+            .then((callback) => {
+                if (callback?.error) {
+                    toast.error(callback.error);
+                } else {
+                    router.push('/');
+                }   
+            });
         } catch (error) {
             toast.error("Something went wrong.");
         } finally {
