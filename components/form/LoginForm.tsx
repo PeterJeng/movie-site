@@ -39,7 +39,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
             if (callback?.error) {
                 toast.error(callback.error);
             } else {
-                router.push('/');
+                router.push('/browse');
             }   
         })
         .finally(() => {

@@ -7,7 +7,6 @@ const Browse = async () => {
     return ( 
         <div>
             <Navbar currentUser={currentUser} />
-            Browse shows
         </div>
      );
 }

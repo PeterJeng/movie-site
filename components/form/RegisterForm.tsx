@@ -47,7 +47,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
                 if (callback?.error) {
                     toast.error(callback.error);
                 } else {
-                    router.push('/');
+                    router.push('/browse');
                 }   
             });
         } catch (error) {
