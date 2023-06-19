@@ -1,8 +1,8 @@
 import ClientOnly from '@/components/ClientOnly'
 import './globals.css'
 import { Inter } from 'next/font/google'
-import ToasterProvider from './providers/ToasterProvider'
-import Navbar from '@/components/navbar/Navbar'
+import ToasterProvider from '../providers/ToasterProvider'
+import AuthProvider from '@/providers/AuthProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -11,20 +11,20 @@ export const metadata = {
   description: 'Netflix Clone',
 }
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-
   return (
     <html lang="en">
       <body className={inter.className}>
         <ClientOnly>
-          <ToasterProvider />
-          <Navbar />
+          <AuthProvider>
+            <ToasterProvider />
+            {children}
+          </AuthProvider>
         </ClientOnly>
-        {children}
       </body>
     </html>
   )

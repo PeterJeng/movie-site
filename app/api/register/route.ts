@@ -2,6 +2,7 @@ import prisma from "@/libs/prismadb";
 import { NextResponse } from "next/server";
 
 const bcrypt = require('bcryptjs');
+const UNIQUE_CONSTRAINT_ERROR = 'P2002';
 
 export async function POST(
     request: Request
@@ -15,6 +16,7 @@ export async function POST(
     } = body;
 
     const hashedPassword = await bcrypt.hash(password, 12);
+
 
     const user = await prisma.user.create({
         data: {
