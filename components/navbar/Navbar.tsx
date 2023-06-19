@@ -10,7 +10,7 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({
     currentUser
 }) => {
-    console.log(currentUser)
+
     return ( 
         <div>
             Hello {currentUser?.email}
