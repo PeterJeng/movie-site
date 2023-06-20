@@ -1,3 +1,4 @@
+import MenuItem from "../MenuItem";
 import { navbarMenuList } from "./Navbar";
 
 const BrowseMenu = () => {
@@ -26,9 +27,12 @@ const BrowseMenu = () => {
                 "
             >
                 {navbarMenuList.map((item) => (
-                    <div key={item.label} className="px-3 py-3 text-center text-sm text-white hover:text-gray-300 hover:bg-neutral-900">
-                        {item.label}
-                    </div>
+                    <MenuItem
+                        key={item.label}
+                        label={item.label}
+                        onClick={item.onClick}
+                        center
+                    />
                 ))}
                 
             </div>

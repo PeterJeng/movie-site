@@ -1,17 +1,19 @@
 'use client';
 
-import { User } from "@prisma/client";
-import { signOut } from "next-auth/react";
+import { useEffect, useState } from "react";
 import { MdArrowDropDown } from "react-icons/md";
 import { BsSearch, BsBell } from "react-icons/bs";
 import Logo from "./Logo";
-import NavbarItem from "./NavbarItem";
+import NavItem from "./NavItem";
 import BrowseMenu from "./BrowseMenu";
 import Dropdown from "../Dropdown";
 import AccountMenu from "./AccountMenu";
+import { SafeUser } from "@/types";
+
+const TOP_OFFSET = 66;
 
 interface NavbarProps {
-    currentUser?: User | null
+    currentUser?: SafeUser | null
 }
 
 export const navbarMenuList = [
@@ -44,10 +46,30 @@ export const navbarMenuList = [
 const Navbar: React.FC<NavbarProps> = ({
     currentUser
 }) => {
+    const [showBackground, setShowBackground] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            console.log(window.scrollY)
+            if (window.scrollY >= TOP_OFFSET) {
+                setShowBackground(true)
+            } else {
+                setShowBackground(false)
+            }
+        }
+    
+        window.addEventListener('scroll', handleScroll);
+        console.log(window)
+    
+        return () => {
+          window.removeEventListener('scroll', handleScroll);
+        }
+    }, []);
+
     return ( 
         <div className="fixed w-full z-40 shadow-sm">
             <div 
-                className="
+                className={`
                     px-4
                     lg:px-10
                     py-6
@@ -56,9 +78,8 @@ const Navbar: React.FC<NavbarProps> = ({
                     items-center
                     transition
                     duration-500
-                    bg-neutral-950
-                    bg-opacity-90
-                "
+                    ${showBackground ? 'bg-neutral-950 bg-opacity-90' : ''}
+                `}
             >
                 <Logo />
                 <div
@@ -72,7 +93,7 @@ const Navbar: React.FC<NavbarProps> = ({
                 >
                     {
                         navbarMenuList.map(item => (
-                            <NavbarItem key={item.label} label={item.label} />
+                            <NavItem key={item.label} label={item.label} />
                         ))
                     }
                 </div>

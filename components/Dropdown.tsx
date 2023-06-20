@@ -34,7 +34,7 @@ const Dropdown: React.FC<DropdownProps> = ({
                         src={imageSrc}
                     />)
                 }
-                {Icon && (<Icon size={24} />)}
+                {Icon && (<Icon size={24} className="group-hover:rotate-180 transition"/>)}
             </div>
             <div 
                 className="

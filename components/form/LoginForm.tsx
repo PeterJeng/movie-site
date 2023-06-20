@@ -39,7 +39,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
             if (callback?.error) {
                 toast.error(callback.error);
             } else {
-                router.push('/browse');
+                router.push('/profiles');
             }   
         })
         .finally(() => {
@@ -75,7 +75,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
             <hr />
             <Button
                 label="Continue with Google"
-                onClick={() => signIn('google')}
+                onClick={() => signIn('google', { callbackUrl: '/profiles' })}
                 outline
                 icon={FcGoogle}
             />

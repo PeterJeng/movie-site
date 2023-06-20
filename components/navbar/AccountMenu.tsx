@@ -1,4 +1,7 @@
-import { navbarMenuList } from "./Navbar";
+import MenuItem from "../MenuItem";
+import { signOut } from "next-auth/react";
+import { LuPencil } from "react-icons/lu";
+import { IoPersonOutline, IoHelpCircleOutline } from "react-icons/io5";
 
 const AccountMenu = () => {
     return ( 
@@ -25,22 +28,33 @@ const AccountMenu = () => {
                     gap-1
                 "
             >
-                <div className="px-3 py-3 text-sm text-white hover:text-gray-300 hover:bg-neutral-900">
-                    Username
-                </div>
-                <div className="px-3 py-3 text-sm text-white hover:text-gray-300 hover:bg-neutral-900">
-                    Manage Profiles
-                </div>
-                <div className="px-3 py-3 text-sm text-white hover:text-gray-300 hover:bg-neutral-900">
-                    Account
-                </div>
-                <div className="px-3 py-3 text-sm text-white hover:text-gray-300 hover:bg-neutral-900">
-                    Help Center
-                </div>
+                
+                <MenuItem 
+                    key="username" 
+                    label="Username" 
+                    onClick={() => {}}
+                    imageSrc="/images/default-blue.png"
+                />
+                <MenuItem 
+                    key="profile" 
+                    label="Manage Profiles" 
+                    onClick={() => {}}
+                    icon={LuPencil}
+                />
+                <MenuItem 
+                    key="account" 
+                    label="Account" 
+                    onClick={() => {}} 
+                    icon={IoPersonOutline}
+                />
+                <MenuItem 
+                    key="help" 
+                    label="Help Center" 
+                    onClick={() => {}} 
+                    icon={IoHelpCircleOutline}
+                />
                 <hr className="border-gray-600" />
-                <div className="px-3 py-3 text-center text-sm text-white hover:text-gray-300 hover:bg-neutral-900">
-                    Sign out of Netflix
-                </div>
+                <MenuItem key="signout" label="Sign out of Netflix" onClick={signOut} center />
             </div>
         </div>
      );

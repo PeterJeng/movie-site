@@ -1,10 +1,10 @@
 import React from 'react';
 
-interface NavbarItemProps {
+interface NavItemProps {
     label: string;
 }
 
-const NavbarItem: React.FC<NavbarItemProps> = ({
+const NavItem: React.FC<NavItemProps> = ({
     label
 }) => {
     return ( 
@@ -14,4 +14,4 @@ const NavbarItem: React.FC<NavbarItemProps> = ({
      );
 }
  
-export default NavbarItem;
+export default NavItem;
