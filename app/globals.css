@@ -5,5 +5,5 @@
 html,
 body,
 :root {
-  @apply bg-zinc-900 h-full overflow-x-hidden
+  @apply bg-neutral-950 h-full overflow-x-hidden
 }
