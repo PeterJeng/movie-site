@@ -1,18 +1,18 @@
 import getCurrentUser from "@/actions/getCurrentUser";
+import getRandomMovie from "@/actions/getRandomMovie";
+import ClientOnly from "@/components/ClientOnly";
+import Billboard from "@/components/billboard/Billboard";
 import Navbar from "@/components/navbar/Navbar";
 
 const Browse = async () => {
     const currentUser = await getCurrentUser();
+    const randomMovie = await getRandomMovie();
 
     return ( 
-        <div>
+        <ClientOnly>
             <Navbar currentUser={currentUser} />
-            <div className="h-96"></div>
-            <div className="h-96"></div>
-            <div className="h-96"></div>
-            <div className="h-96"></div>
-            <div className="h-96"></div>
-        </div>
+            <Billboard randomMovie={randomMovie} />
+        </ClientOnly>
      );
 }
  
