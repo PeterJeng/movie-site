@@ -1,15 +1,11 @@
 'use client';
 
-import { SafeUser } from "@/types";
 import { useRouter } from "next/navigation";
+import { useCurrentUserContext } from "@/hooks/useUserContext";
 
-interface ProfilesClientProps {
-    currentUser: SafeUser | null;
-}
 
-const ProfilesClient: React.FC<ProfilesClientProps> = ({
-    currentUser
-}) => {
+const ProfilesClient = () => {
+    const currentUser = useCurrentUserContext(); 
     const router = useRouter();
 
     return ( 
@@ -48,7 +44,7 @@ const ProfilesClient: React.FC<ProfilesClientProps> = ({
                                         group-hover:text-white
                                     "
                                 >
-                                    {currentUser?.name}
+                                    {currentUser.name}
                                 </div>
                             </div>
                         </div>

@@ -1,18 +1,17 @@
 'use client';
 
-import { SafeUser } from "@/types";
 import useFavorite from "@/hooks/useFavorite";
 import { IoAddCircleOutline, IoCheckmarkCircleOutline } from "react-icons/io5";
+import { useCurrentUserContext } from "@/hooks/useUserContext";
 
 interface FavoriteButtonProps {
     movieId: string;
-    currentUser?: SafeUser | null;
 }
 
 const FavoriteButton: React.FC<FavoriteButtonProps> = ({
     movieId,
-    currentUser
 }) => {
+    const currentUser = useCurrentUserContext();
     const { hasFavorited, toggleFavorite } = useFavorite({
         movieId,
         currentUser

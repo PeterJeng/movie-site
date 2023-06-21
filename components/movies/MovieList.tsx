@@ -3,18 +3,15 @@
 import { Movie } from "@prisma/client";
 import MovieCard from "./MovieCard";
 import { useCallback } from "react";
-import { SafeUser } from "@/types";
 
 interface MovieListProps {
     movieList?: Movie[] | null;
     title: string;
-    currentUser?: SafeUser | null;
 }
 
 const MovieList: React.FC<MovieListProps> = ({
     movieList,
     title,
-    currentUser
 }) => {
     const right = useCallback((index: number) => {
         return (index + 1) % 4 === 0
@@ -49,7 +46,6 @@ const MovieList: React.FC<MovieListProps> = ({
                             right={right(index)} 
                             left={left(index)} 
                             key={movie.id} data={movie}
-                            currentUser={currentUser}
                         />
                     ))}
                 </div>

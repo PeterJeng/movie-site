@@ -8,12 +8,9 @@ import NavItem from "./NavItem";
 import BrowseMenu from "./BrowseMenu";
 import Dropdown from "../Dropdown";
 import AccountMenu from "./AccountMenu";
-import { SafeUser } from "@/types";
-
-
 
 interface NavbarProps {
-    currentUser?: SafeUser | null
+    
 }
 
 export const navbarMenuList = [
@@ -45,9 +42,7 @@ export const navbarMenuList = [
 
 const TOP_OFFSET = 66;
 
-const Navbar: React.FC<NavbarProps> = ({
-    currentUser
-}) => {
+const Navbar: React.FC<NavbarProps> = () => {
     const [showBackground, setShowBackground] = useState(false);
 
     useEffect(() => {

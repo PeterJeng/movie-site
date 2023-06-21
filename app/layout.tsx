@@ -1,8 +1,8 @@
-import ClientOnly from '@/components/ClientOnly'
-import './globals.css'
-import { Inter } from 'next/font/google'
-import ToasterProvider from '../providers/ToasterProvider'
-import AuthProvider from '@/providers/AuthProvider'
+import ClientOnly from '@/components/ClientOnly';
+import './globals.css';
+import { Inter } from 'next/font/google';
+import ToasterProvider from '../providers/ToasterProvider';
+import AuthProvider from '@/providers/AuthProvider';
 
 const inter = Inter({ subsets: ['latin'] })
 

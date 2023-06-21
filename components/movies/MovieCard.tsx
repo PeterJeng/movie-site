@@ -3,20 +3,17 @@
 import { Movie } from "@prisma/client";
 import { BsFillPlayFill } from "react-icons/bs";
 import FavoriteButton from "./FavoriteButton";
-import { SafeUser } from "@/types";
 
 interface MovieCardProps {
     data: Movie;
     left: boolean;
     right: boolean;
-    currentUser?: SafeUser | null;
 }
 
 const MovieCard: React.FC<MovieCardProps> = ({
     data,
     left,
-    right,
-    currentUser
+    right
 }) => {
     return ( 
         <div className="group bg-neutral-950 col-auto relative h-[12vw]">
@@ -105,7 +102,7 @@ const MovieCard: React.FC<MovieCardProps> = ({
                         >
                             <BsFillPlayFill size={30} />
                         </div>
-                        <FavoriteButton movieId={data.id} currentUser={currentUser}/>
+                        <FavoriteButton movieId={data.id} />
                     </div>
 
                     <div className="flex flex-row text-neutral-200 mt-4 gap-2 items-center">
