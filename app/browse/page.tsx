@@ -18,7 +18,7 @@ const Browse = async () => {
                 <Navbar />
                 <Billboard randomMovie={randomMovie} />
                 <div className="pb-40">
-                    <MovieList currentUser={currentUser} title="Trending Now" movieList={movieList} />
+                    <MovieList title="Trending Now" movieList={movieList} />
                 </div>
             </UserProvider>
         </ClientOnly>
