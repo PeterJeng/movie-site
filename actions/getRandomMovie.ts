@@ -1,6 +1,5 @@
 import prisma from "@/libs/prismadb";
 import getCurrentUser from "@/actions/getCurrentUser";
-import { NextResponse } from "next/server";
 import { Movie } from "@prisma/client";
 
 const getRandomMovie = async () => {
@@ -18,9 +17,10 @@ const getRandomMovie = async () => {
             take: 1,
             skip: randomIndex
         });
-        
+
         return randomMovies[0];
     } catch (error: any) {
+        console.error("getRandomMovies: " + error);
         return null;
     }
 }

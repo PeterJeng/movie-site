@@ -1,6 +1,7 @@
 'use client';
 
 import { Movie } from "@prisma/client";
+import InfoButton from "./InfoButton";
 
 interface BillboardProps {
     randomMovie?: Movie | null;
@@ -61,6 +62,9 @@ const Billboard: React.FC<BillboardProps> = ({
                     "
                 >
                     {randomMovie?.description}
+                </div>
+                <div className="flex flex-row items-center mt-3 md:mt-4 gap-3">
+                    <InfoButton />
                 </div>
             </div>
         </div>

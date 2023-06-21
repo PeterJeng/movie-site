@@ -30,5 +30,13 @@
       "thumbnailUrl":"https://download.blender.org/ED/cover.jpg",
       "genre":"Sci-Fi",
       "duration":"15 minutes"
+   },
+   {
+      "title":"Banff Trip",
+      "description":"Peter, Alex, Andrew, and Ben journey to Banff and Jasper to explore the great Canadian Rockys. Take in the breathtaking views of their travels, and come share their fond memories together!",
+      "videoUrl":"https://www.dropbox.com/s/8g4bcfkhwh9myft/Banff%201080.mp4",
+      "thumbnailUrl":"https://i.imgur.com/O0pwCCB.jpg",
+      "genre":"Adventure",
+      "duration":"5 minutes"
    }
 ]
