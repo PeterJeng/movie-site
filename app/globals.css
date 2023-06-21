@@ -5,5 +5,5 @@
 html,
 body,
 :root {
-  @apply bg-neutral-500 h-full overflow-x-hidden
+  @apply bg-neutral-950 h-full
 }

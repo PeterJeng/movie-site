@@ -10,7 +10,7 @@ import Dropdown from "../Dropdown";
 import AccountMenu from "./AccountMenu";
 import { SafeUser } from "@/types";
 
-const TOP_OFFSET = 66;
+
 
 interface NavbarProps {
     currentUser?: SafeUser | null
@@ -43,6 +43,8 @@ export const navbarMenuList = [
     }
 ]
 
+const TOP_OFFSET = 66;
+
 const Navbar: React.FC<NavbarProps> = ({
     currentUser
 }) => {
@@ -50,7 +52,6 @@ const Navbar: React.FC<NavbarProps> = ({
 
     useEffect(() => {
         const handleScroll = () => {
-            console.log(window.scrollY)
             if (window.scrollY >= TOP_OFFSET) {
                 setShowBackground(true)
             } else {
@@ -59,15 +60,14 @@ const Navbar: React.FC<NavbarProps> = ({
         }
     
         window.addEventListener('scroll', handleScroll);
-        console.log(window)
-    
+
         return () => {
           window.removeEventListener('scroll', handleScroll);
         }
     }, []);
 
     return ( 
-        <div className="fixed w-full z-40 shadow-sm">
+        <div className="fixed w-full z-40">
             <div 
                 className={`
                     px-4
