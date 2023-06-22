@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 
 import getCurrentUser from "@/actions/getCurrentUser";
 import prisma from "@/libs/prismadb";
+import getFavorites from "@/actions/getFavorites";
 
 interface IParams {
     movieId?: string;
@@ -38,7 +39,7 @@ export async function POST(
 
     favoriteIds.push(movieId);
 
-    const user = await prisma.user.update({
+    await prisma.user.update({
         where: {
             id: currentUser.id
         },
@@ -47,14 +48,9 @@ export async function POST(
         }
     })
 
-    const safeUser =  {
-        ...user,
-        createdAt: user.createdAt.toISOString(),
-        updatedAt: user.updatedAt.toISOString(),
-        emailVerified: user.emailVerified?.toISOString() || null
-    };
+    const favoriteMovies = await getFavorites();
 
-    return NextResponse.json(safeUser);
+    return NextResponse.json(favoriteMovies);
 }
 
 export async function DELETE(
@@ -77,7 +73,7 @@ export async function DELETE(
 
     favoriteIds = favoriteIds.filter((id) => id !== movieId);
 
-    const user = await prisma.user.update({
+    await prisma.user.update({
         where: {
             id: currentUser.id
         },
@@ -86,12 +82,7 @@ export async function DELETE(
         }
     })
 
-    const safeUser =  {
-        ...user,
-        createdAt: user.createdAt.toISOString(),
-        updatedAt: user.updatedAt.toISOString(),
-        emailVerified: user.emailVerified?.toISOString() || null
-    };
+    const favoriteMovies = await getFavorites();
 
-    return NextResponse.json(safeUser);
+    return NextResponse.json(favoriteMovies);
 }

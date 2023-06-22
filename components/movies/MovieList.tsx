@@ -5,12 +5,12 @@ import MovieCard from "./MovieCard";
 import { useCallback } from "react";
 
 interface MovieListProps {
-    movieList?: Movie[] | null;
+    movieList: Movie[];
     title: string;
 }
 
 const MovieList: React.FC<MovieListProps> = ({
-    movieList,
+    movieList = [],
     title,
 }) => {
     const right = useCallback((index: number) => {

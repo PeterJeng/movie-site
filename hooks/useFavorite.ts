@@ -1,22 +1,22 @@
 import axios from "axios";
-import { useRouter } from "next/navigation";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback,  useState } from "react";
 import { toast } from "react-hot-toast";
-
-import { SafeUser } from "@/types";
+import { Movie } from "@prisma/client";
+import { useCurrentUserContext } from "./useUserContext";
+import useFavoriteStore from "./useFavoriteStore";
+import { useMovieContext } from "./useMovieContext";
 
 
 interface IUseFavorite {
     movieId: string;
-    currentUser?: SafeUser | null;
 }
 
 const useFavorite = ({
-    movieId,
-    currentUser
+    movieId
 }: IUseFavorite ) => {
-    const router = useRouter();
-    const [hasFavorited, setHasFavorited] = useState(currentUser?.favoriteIds.includes(movieId));
+    const { movies, addFavorite, removeFavorite } = useFavoriteStore();
+    const currentUser = useCurrentUserContext();
+    const movieList = useMovieContext();
 
     const toggleFavorite = useCallback(async (
         event: React.MouseEvent<HTMLDivElement>
@@ -30,26 +30,33 @@ const useFavorite = ({
         try {
             let request;
 
-            if (hasFavorited) {
-                request = () => axios.delete(`/api/favorites/${movieId}`);
+            if (movies.has(movieId)) {
+                await axios.delete(`/api/favorites/${movieId}`);
+                removeFavorite(movieId);
             } else {
-                request = () => axios.post(`/api/favorites/${movieId}`);
+                await axios.post(`/api/favorites/${movieId}`);
+                const favoriteMovie = movieList.find((movie) => movie.id === movieId);
+
+                if (!favoriteMovie) {
+                    throw new Error('Something went wrong');
+                }
+
+                addFavorite(movieId, favoriteMovie);
             }
-        
-            await request();
-            setHasFavorited((favorite) => !favorite);
         } catch (error) {
             toast.error('Something went wrong.');
         }
        
     }, [
-        hasFavorited,
+        movies,
         currentUser,
-        movieId
+        movieId,
+        movieList,
+        removeFavorite,
+        addFavorite
     ]);
 
     return {
-        hasFavorited,
         toggleFavorite
     }
 }

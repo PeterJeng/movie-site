@@ -7,15 +7,14 @@ const getMovieList = async () => {
         const currentUser = await getCurrentUser();
 
         if (!currentUser) {
-            return null;
+            return [];
         }
 
         const movies: Movie[] = await prisma.movie.findMany();
 
         return movies;
     } catch (error: any) {
-        console.error("getMovieList: " + error);
-        return null;
+        throw new Error(error);
     }
 }
 
