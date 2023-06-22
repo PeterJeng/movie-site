@@ -1,11 +1,9 @@
 import axios from "axios";
-import { useCallback,  useState } from "react";
+import { useCallback } from "react";
 import { toast } from "react-hot-toast";
-import { Movie } from "@prisma/client";
 import { useCurrentUserContext } from "./useUserContext";
 import useFavoriteStore from "./useFavoriteStore";
 import { useMovieContext } from "./useMovieContext";
-
 
 interface IUseFavorite {
     movieId: string;
@@ -28,8 +26,6 @@ const useFavorite = ({
         }
 
         try {
-            let request;
-
             if (movies.has(movieId)) {
                 await axios.delete(`/api/favorites/${movieId}`);
                 removeFavorite(movieId);
