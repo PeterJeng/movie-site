@@ -142,21 +142,24 @@ const MovieCard: React.FC<MovieCardProps> = ({
                     </div>
 
                     <div className="flex flex-row text-neutral-200 mt-4 gap-2 items-center">
-                        <button 
-                            className="
-                                cursor-default
-                                rounded-md 
-                                px-1.5 
-                                py-0.5 
-                                bg-green-500 
-                                text-white"
-                            >
-                                New
-                            </button>
+                        
                         <div className="font-semibold text-xl">{data.title}</div>
                         <div className="ml-auto">{data.duration}</div>
                     </div>
                     <div className="flex flex-row mt-4 gap-2 items-center">
+                        <button 
+                            className="
+                                cursor-default
+                                rounded-lg 
+                                px-1.5 
+                                py-0.5
+                                text-[10px] 
+                                lg:text-sm
+                                bg-green-500 
+                                text-white"
+                        >
+                            New
+                        </button>
                        {data.genre.map((genre, index) => <GenreTag key={index} genre={genre} />)}
                     </div>
                 </div>

@@ -1,3 +1,4 @@
+import useInfoModal from "@/hooks/useInfoModal";
 import { useRouter } from "next/navigation";
 import { BsFillPlayFill } from "react-icons/bs";
 
@@ -8,10 +9,14 @@ interface PlayButtonProps {
 const PlayButton: React.FC<PlayButtonProps> = ({
     movieId
 }) => {
+    const { onClose } = useInfoModal();
     const router = useRouter();
     return ( 
         <button
-            onClick={() => router.push(`/watch/${movieId}`)}
+            onClick={() => {
+                onClose(); // make sure info modal always closes
+                router.push(`/watch/${movieId}`);
+            }}
             className="
                 bg-white
                 rounded-md
