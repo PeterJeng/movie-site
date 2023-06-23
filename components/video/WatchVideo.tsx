@@ -36,6 +36,8 @@ const WatchVideo: React.FC<WatchVideoProps> = ({
                 const videoTime = setTimeout(() => {
                     videoPlayer.setAttribute("timer", "");
                     videoPlayer.classList.add("cursor-none");
+                    nav.setAttribute("timer", "");
+                    nav.classList.add("hidden");
                 }, 3500);
 
                 const navTime = setTimeout(() => {

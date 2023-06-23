@@ -1,8 +1,17 @@
 'use client';
 
+import useInfoModal from "@/hooks/useInfoModal";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 
-const InfoButton = () => {
+interface InfoButtonProps {
+    movieId: string;
+}
+
+const InfoButton: React.FC<InfoButtonProps> = ({
+    movieId
+}) => {
+    const { onOpen } = useInfoModal();
+
     return ( 
         <button
             className="
@@ -24,7 +33,7 @@ const InfoButton = () => {
                 hover:bg-opacity-20
                 transition
             "
-            onClick={() => {}}
+            onClick={() => onOpen(movieId)}
         >
             <AiOutlineInfoCircle className="mr-2 Icon"/>
             More Info

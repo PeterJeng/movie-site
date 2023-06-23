@@ -1,9 +1,11 @@
 'use client';
 
 import { Movie } from "@prisma/client";
-import { BsFillPlayFill } from "react-icons/bs";
+import { BsFillPlayFill, BsArrowDown } from "react-icons/bs";
 import FavoriteButton from "./FavoriteButton";
 import { useRouter } from "next/navigation";
+import useInfoModal from "@/hooks/useInfoModal";
+import GenreTag from "../GenreTag";
 
 interface MovieCardProps {
     data: Movie;
@@ -17,7 +19,7 @@ const MovieCard: React.FC<MovieCardProps> = ({
     right
 }) => {
     const router = useRouter();
-    console.log(data.id)
+    const { onOpen } = useInfoModal();
 
     return ( 
         <div className="group bg-neutral-950 col-auto relative h-[12vw]">
@@ -59,11 +61,11 @@ const MovieCard: React.FC<MovieCardProps> = ({
                     ${right && 'group-hover:-translate-x-[1vw]' }
                 `}
             >
-                <img 
-                    src={data.thumbnailUrl}
-                    alt="Thumbnail"
+                <video
+                    muted
+                    autoPlay
+                    controls={false}
                     className="
-                        cursor-pointer
                         object-cover
                         transition
                         duration-0
@@ -72,6 +74,8 @@ const MovieCard: React.FC<MovieCardProps> = ({
                         w-full
                         h-[12vw]
                     "
+                    poster={data.thumbnailUrl}
+                    src={data.videoUrl}
                 />
                 <div
                     className="
@@ -104,17 +108,56 @@ const MovieCard: React.FC<MovieCardProps> = ({
                             "
                             onClick={() => router.push(`/watch/${data.id}`)}
                         >
-                            <BsFillPlayFill size={30} />
+                            <BsFillPlayFill className="Icon" />
                         </div>
                         <FavoriteButton movieId={data.id} />
+                        <div
+                            className="
+                                cursor-pointer
+                                ml-auto
+                                group/item
+                                w-6
+                                h-6
+                                lg:w-9
+                                lg:h-9
+                                border-white
+                                border-2
+                                rounded-full
+                                flex
+                                justify-center
+                                items-center
+                                transition
+                                hover:border-neutral-300
+                            "
+                            onClick={() => onOpen(data.id)}
+                        >
+                            <BsArrowDown 
+                                size={28} 
+                                className="
+                                    text-white
+                                    group-hover/item:text-neutral-300
+                                "    
+                            />
+                        </div>
                     </div>
 
                     <div className="flex flex-row text-neutral-200 mt-4 gap-2 items-center">
-                        <div className="font-semibold text-green-500">New</div>
-                        <div>{data.duration}</div>
+                        <button 
+                            className="
+                                cursor-default
+                                rounded-md 
+                                px-1.5 
+                                py-0.5 
+                                bg-green-500 
+                                text-white"
+                            >
+                                New
+                            </button>
+                        <div className="font-semibold text-xl">{data.title}</div>
+                        <div className="ml-auto">{data.duration}</div>
                     </div>
                     <div className="flex flex-row mt-4 gap-2 items-center">
-                        <div className="text-white text-[10px] lg:text-sm">{data.genre}</div>
+                       {data.genre.map((genre, index) => <GenreTag key={index} genre={genre} />)}
                     </div>
                 </div>
             </div>

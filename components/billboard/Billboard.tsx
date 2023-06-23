@@ -66,7 +66,7 @@ const Billboard: React.FC<BillboardProps> = ({
                 </div>
                 <div className="flex flex-row items-center mt-3 md:mt-4 gap-3">
                     <PlayButton movieId={randomMovie?.id} />
-                    <InfoButton />
+                    <InfoButton movieId={randomMovie?.id} />
                 </div>
             </div>
         </div>

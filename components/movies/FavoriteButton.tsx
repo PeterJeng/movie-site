@@ -25,8 +25,8 @@ const FavoriteButton: React.FC<FavoriteButtonProps> = ({
                 cursor-pointer
                 w-6
                 h-6
-                lg:w-10
-                lg:h-10
+                lg:w-12
+                lg:h-12
                 rounded-full
                 flex
                 justify-center
@@ -38,8 +38,8 @@ const FavoriteButton: React.FC<FavoriteButtonProps> = ({
             "
         >
             {movies.has(movieId) ?
-                <IoCheckmarkCircleOutline size={30} /> :
-                <IoAddCircleOutline size={30}/>
+                <IoCheckmarkCircleOutline size={38} /> :
+                <IoAddCircleOutline size={38} />
             }
         </div>
      );
