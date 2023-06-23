@@ -21,7 +21,7 @@ const Browse = async () => {
             <UserProvider currentUser={currentUser}>
                 <MovieProvider movies={movieList}>
                     <Navbar />
-                    <Billboard randomMovie={randomMovie} />
+                    {randomMovie && <Billboard randomMovie={randomMovie} />}
                     <div className="pb-40">
                         <MovieList title="Trending Now" movieList={movieList} />
                         <FavoriteList favoriteList={favoriteList} />

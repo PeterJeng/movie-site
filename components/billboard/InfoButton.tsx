@@ -26,7 +26,7 @@ const InfoButton = () => {
             "
             onClick={() => {}}
         >
-            <AiOutlineInfoCircle className="mr-2" size={24} />
+            <AiOutlineInfoCircle className="mr-2 Icon"/>
             More Info
         </button>
      );

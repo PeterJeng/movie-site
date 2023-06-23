@@ -2,9 +2,10 @@
 
 import { Movie } from "@prisma/client";
 import InfoButton from "./InfoButton";
+import PlayButton from "./PlayButton";
 
 interface BillboardProps {
-    randomMovie?: Movie | null;
+    randomMovie: Movie;
 }
 
 const Billboard: React.FC<BillboardProps> = ({
@@ -64,6 +65,7 @@ const Billboard: React.FC<BillboardProps> = ({
                     {randomMovie?.description}
                 </div>
                 <div className="flex flex-row items-center mt-3 md:mt-4 gap-3">
+                    <PlayButton movieId={randomMovie?.id} />
                     <InfoButton />
                 </div>
             </div>

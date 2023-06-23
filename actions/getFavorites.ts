@@ -2,7 +2,7 @@ import prisma from "@/libs/prismadb";
 
 import getCurrentUser from "./getCurrentUser";
 
-export default async function getFavorites() {
+const getFavorites = async () => {
     try {
         const currentUser = await getCurrentUser();
 
@@ -23,3 +23,5 @@ export default async function getFavorites() {
         throw new Error(error);
     }
 }
+
+export default getFavorites;
