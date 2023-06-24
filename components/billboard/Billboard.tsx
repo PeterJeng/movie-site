@@ -1,8 +1,8 @@
 'use client';
 
 import { Movie } from "@prisma/client";
-import InfoButton from "./InfoButton";
-import PlayButton from "./PlayButton";
+import InfoButton from "../InfoButton";
+import PlayButton from "../PlayButton";
 
 interface BillboardProps {
     randomMovie: Movie;

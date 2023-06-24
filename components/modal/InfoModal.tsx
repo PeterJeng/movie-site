@@ -2,8 +2,8 @@
 
 import { IoClose } from "react-icons/io5";
 
-import PlayButton from "../billboard/PlayButton";
-import FavoriteButton from "../movies/FavoriteButton";
+import PlayButton from "../PlayButton";
+import FavoriteButton from "../FavoriteButton";
 import useInfoModal from "@/hooks/useInfoModal";
 import { useMovieContext } from "@/hooks/useMovieContext";
 import GenreTag from "../GenreTag";
@@ -13,12 +13,14 @@ const InfoModal = () => {
     const movie = useMovieContext().find((movie) => movie.id === movieId);
 
     if (!isOpen || !movie) {
-        return null;
+        // funky behavior with loading <div /> only compared to setting a <div> with scale-0
+        // return <div className="scale-0" />
+        return <div />;
     }
 
     return (
         <div 
-            className="
+            className={`
                 z-50
                 bg-black
                 bg-opacity-80
@@ -29,7 +31,9 @@ const InfoModal = () => {
                 overflow-y-auto
                 fixed
                 inset-0
-            "
+                transition
+                duration-300
+            `}
         >
             <div
                 className="
@@ -39,12 +43,13 @@ const InfoModal = () => {
                     max-w-6xl
                     rounded-md
                     overflow-hidden
+                    
                 "
             >
                 <div
                     className={`
-                        ${isOpen ? 'scale-100' : 'scale-0'}
-                        translate
+                        ${isOpen && 'scale-100'}
+                        transition 
                         duration-300
                         relative
                         flex-auto
@@ -112,7 +117,7 @@ const InfoModal = () => {
                                 {movie.duration}
                             </p>
                             {movie.genre.map((genre, index) => <GenreTag key={index} genre={genre} />)}
-                           
+                        
                         </div>
                         <p className="text-white text-lg">
                             {movie.description}

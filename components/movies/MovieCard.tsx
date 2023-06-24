@@ -2,7 +2,7 @@
 
 import { Movie } from "@prisma/client";
 import { BsFillPlayFill, BsArrowDown } from "react-icons/bs";
-import FavoriteButton from "./FavoriteButton";
+import FavoriteButton from "../FavoriteButton";
 import { useRouter } from "next/navigation";
 import useInfoModal from "@/hooks/useInfoModal";
 import GenreTag from "../GenreTag";
