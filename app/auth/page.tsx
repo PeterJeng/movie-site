@@ -13,7 +13,7 @@ const Auth = () => {
                 relative 
                 h-full 
                 w-full 
-                bg-[url('/images/hero.jpg')]
+                bg-[url('/images/loginBackground.jpg')]
                 bg-no-repeat
                 bg-center
                 bg-fixed

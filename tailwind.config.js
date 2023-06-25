@@ -6,7 +6,11 @@ module.exports = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'netflix-red': '#E50914'
+      }
+    },
   },
   variants: {
     display:['group-hover']
