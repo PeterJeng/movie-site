@@ -1,6 +1,6 @@
 import NoFeature from "@/components/NoFeature";
 import Navbar from "@/components/navbar/Navbar";
-import { LANGUAGES } from "@/components/navbar/Navbar";
+import { LANGUAGES } from "@/types";
 
 const Languages = () => {
     return ( 

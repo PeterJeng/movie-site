@@ -10,7 +10,7 @@ import MovieList from "@/components/movies/MovieList";
 import Navbar from "@/components/navbar/Navbar";
 import { MovieProvider } from "@/hooks/useMovieContext";
 import { UserProvider } from "@/hooks/useUserContext";
-import { HOME } from "@/components/navbar/Navbar";
+import { HOME } from "@/types";
 
 const Browse = async () => {
     const randomMovie = await getRandomMovie();

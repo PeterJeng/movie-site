@@ -8,38 +8,45 @@ import NavItem from "./NavItem";
 import BrowseMenu from "./BrowseMenu";
 import Dropdown from "../Dropdown";
 import AccountMenu from "./AccountMenu";
-
-export const HOME = 'Home';
-export const TV_SHOWS = 'TV Shows';
-export const MOVIES = 'Movies';
-export const NEW_AND_POPULAR = 'New & Popular';
-export const MY_LIST = "My List";
-export const LANGUAGES = "Browse by Languages";
+import { 
+    HOME, 
+    HOME_PATH,
+    TV_SHOWS,
+    TV_SHOWS_PATH,
+    MOVIES,
+    MOVIES_PATH,
+    NEW_AND_POPULAR,
+    NEW_AND_POPULAR_PATH,
+    MY_LIST,
+    MY_LIST_PATH,
+    LANGUAGES,
+    LANGUAGES_PATH
+} from "@/types";
 
 export const navbarMenuList = [
     {
         label: HOME,
-        path: "/browse"
+        path: HOME_PATH
     },
     {
         label: TV_SHOWS,
-        path: "/shows"
+        path: TV_SHOWS_PATH
     },
     {
         label: MOVIES,
-        path: "/movies"
+        path: MOVIES_PATH
     },
     {
         label: NEW_AND_POPULAR,
-        path: "/new-popular"
+        path: NEW_AND_POPULAR_PATH
     },
     {
         label: MY_LIST,
-        path: "/my-list"
+        path: MY_LIST_PATH
     },
     {
         label: LANGUAGES,
-        path: "/languages"
+        path: LANGUAGES_PATH
     }
 ]
 

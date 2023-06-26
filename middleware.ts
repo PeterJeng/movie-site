@@ -2,6 +2,14 @@ export { default } from "next-auth/middleware";
 
 export const config = {
     matcher: [
-        "/browse"
+        "/browse",
+        "/shows",
+        "/movies",
+        "/new-popular",
+        "/my-list",
+        "/languages",
+        "/profiles/manage",
+        "/account",
+        "/help"
     ]
 }

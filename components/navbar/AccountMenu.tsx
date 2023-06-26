@@ -2,6 +2,11 @@ import MenuItem from "../MenuItem";
 import { signOut } from "next-auth/react";
 import { LuPencil } from "react-icons/lu";
 import { IoPersonOutline, IoHelpCircleOutline } from "react-icons/io5";
+import { 
+    ACCOUNT_PATH,
+    HELP_PATH,
+    PROFILES_PATH 
+} from "@/types";
 
 const AccountMenu = () => {
     return ( 
@@ -31,19 +36,19 @@ const AccountMenu = () => {
                 <MenuItem 
                     key="profile" 
                     label="Manage Profiles" 
-                    path="/profiles/manage"
+                    path={PROFILES_PATH}
                     icon={LuPencil}
                 />
                 <MenuItem 
                     key="account" 
                     label="Account" 
-                    path="account"
+                    path={ACCOUNT_PATH}
                     icon={IoPersonOutline}
                 />
                 <MenuItem 
                     key="help" 
                     label="Help Center" 
-                    path="help" 
+                    path={HELP_PATH}
                     icon={IoHelpCircleOutline}
                 />
                 <hr className="border-gray-600" />
