@@ -12,7 +12,8 @@ const Main = () => {
                 className="
                     relative
                     w-full
-                    h-[50vh]
+                    h-[75%]
+                    sm:h-[50vh]
                     bg-[url('/images/netflixBackground.jpg')]
                     bg-cover
                     bg-center
