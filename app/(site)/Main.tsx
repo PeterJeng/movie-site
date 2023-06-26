@@ -1,3 +1,4 @@
+import GetStartedForm from "@/components/form/GetStartedForm";
 import SignInButton from "@/components/login/SignInButton";
 
 const Main = () => {
@@ -8,7 +9,6 @@ const Main = () => {
                 className="
                     relative
                     w-full
-                    h-[75%]
                     sm:h-[50vh]
                     bg-[url('/images/netflixBackground.jpg')]
                     bg-cover
@@ -39,9 +39,11 @@ const Main = () => {
                         />
                         <SignInButton />
                     </nav>
+
                     <div 
                         className="
                             text-white
+                            h-full
                             flex
                             flex-col
                             justify-center
@@ -55,7 +57,7 @@ const Main = () => {
                                 text-5xl
                                 leading-[70px]
                                 font-extrabold
-                                max-w-2xl
+                                px-4
                             "
                         >
                             Unlimited movies, Tv shows and more.
@@ -77,6 +79,9 @@ const Main = () => {
                             "
                         >
                             Ready to watch? Enter your email to create or restart your membership.
+                        </div>
+                        <div className="my-5">
+                            <GetStartedForm />
                         </div>
                     </div>
                 </div>

@@ -9,7 +9,9 @@ import axios from 'axios';
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import qs from "query-string";
+
 
 interface RegisterFormProps {
     toggleMode: () => void;
@@ -20,10 +22,19 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
 }) => {
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(false);
+    const params = useSearchParams();
+
+    const currentQuery = qs.parse(params.toString());
+    let email = ""
+
+    if (currentQuery.email) {
+        email = currentQuery.email.toString();
+    }
+
     const { register, handleSubmit, formState: { errors } } = useForm<FieldValues>({
         defaultValues: {
             name: '',
-            email: '',
+            email: email,
             password: ''
         },
     });
@@ -55,7 +66,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
         } finally {
             setIsLoading(false);
         }
-      };
+    };
 
     return ( 
         <div className="flex flex-col gap-4">

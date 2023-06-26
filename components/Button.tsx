@@ -30,7 +30,7 @@ const Button: React.FC<ButtonProps> = ({
                 py-3
                 text-md
                 font-semibold
-                ${outline ? 'bg-neutral-100' : 'bg-red-700'}
+                ${outline ? 'bg-neutral-100' : 'bg-netflix-red'}
                 ${outline ? 'text-black' : 'text-white'}
             `}
         >
