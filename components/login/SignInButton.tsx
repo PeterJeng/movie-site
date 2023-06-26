@@ -1,3 +1,5 @@
+'use client';
+
 import { useRouter } from "next/navigation";
 
 const SignInButton = () => {
@@ -16,6 +18,8 @@ const SignInButton = () => {
                 hover:bg-opacity-70
                 duration-300
                 transform
+                ml-auto
+                w-24
             "
             onClick={() => router.push('/auth')}
         >
