@@ -1,10 +1,11 @@
+import { useRouter } from "next/navigation";
 import { IconType } from "react-icons";
 
 interface MenuItemProps {
     key: string;
     label: string;
+    path: string;
     imageSrc?: string;
-    onClick?: () => void;
     center?: boolean;
     icon?: IconType;
 }
@@ -12,13 +13,15 @@ interface MenuItemProps {
 const MenuItem: React.FC<MenuItemProps> = ({
     label,
     imageSrc,
-    onClick,
     icon: Icon,
-    center
+    center,
+    path
 }) => {
+    const router = useRouter();
+
     return ( 
         <div 
-            onClick={onClick} 
+            onClick={() => router.push(path)} 
             className={
                 `
                     px-3 

@@ -30,7 +30,7 @@ const BrowseMenu = () => {
                     <MenuItem
                         key={item.label}
                         label={item.label}
-                        onClick={item.onClick}
+                        path={item.path}
                         center
                     />
                 ))}
