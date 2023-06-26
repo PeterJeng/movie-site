@@ -1,7 +1,6 @@
 'use client';
 
 import SignInButton from "@/components/login/SignInButton";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 const Main = () => {
