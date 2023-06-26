@@ -90,83 +90,6 @@ const Main = () => {
             <div className="section-header">
                 <div 
                     className="
-                        text-neutral-100
-                        px-4
-                        col-span-2
-                        md:col-span-1
-                        text-center
-                        md:text-left
-                        items-center
-                    "
-                >
-                    <div className="flex flex-col">
-                        { /* eslint-disable-next-line react/no-unescaped-entities */ }
-                        <h1 className="font-bold text-5xl ">Hi, I'm Peter Jeng!</h1>
-                        <h3 className="text-2xl leading-8 py-4 text-neutral-300">FullStack developer based in New York City, US.</h3>
-                        <div className="flex flex-row justify-center md:justify-normal items-center">
-                            <a href="https://www.linkedin.com/in/peterjeng/" target="_blank" rel="noopener noreferrer">
-                                <img src="images/tech/linkedIn.svg" alt="linkedIn" className="w-10 h-10 rounded-md hover:opacity-50 bg-neutral-600 border-2 border-neutral-600"/>
-                            </a>
-                        </div>
-                        
-                    </div>
-                    <div className="flex flex-col pt-20">
-                        <h3 className="text-2xl leading-8">Project Development:</h3>
-                        <div className="flex flex-row gap-6 pt-4">
-                            <a href="https://react.dev/" target="_blank" rel="noopener noreferrer">
-                                <img src="images/tech/react.svg" alt="React" className="tech-logo"/>
-                            </a>
-                            <a href="https://nextjs.org/" target="_blank" rel="noopener noreferrer">
-                                <img src="images/tech/nextjs.png" alt="NextJS" className="tech-logo"/>
-                            </a>
-                            <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer">
-                                <img src="images/tech/tailwind.svg" alt="Tailwind" className="tech-logo"/>
-                            </a>
-                            <a href="https://www.prisma.io/" target="_blank" rel="noopener noreferrer">
-                                <img src="images/tech/prisma.svg" alt="Prisma" className="tech-logo bg-neutral-50"/>
-                            </a>
-                            <a href="https://next-auth.js.org/" target="_blank" rel="noopener noreferrer">
-                                <img src="images/tech/nextauth.png" alt="NextAuth" className="tech-logo"/>
-                            </a>
-                            <a href="https://www.mongodb.com/" target="_blank" rel="noopener noreferrer">
-                                <img src="images/tech/mongoDB.svg" alt="MongoDB" className="tech-logo"/>
-                            </a>
-                            <a href="https://vercel.com/" target="_blank" rel="noopener noreferrer">
-                                <img src="images/tech/vercel-light.png" alt="Vercel" className="tech-logo"/>
-                            </a>
-                        </div>
-                    </div>
-                   
-                </div>
-    
-                <div
-                    className="
-                        col-start-1
-                        row-start-2
-                        col-span-2
-                        md:col-start-2
-                        md:row-start-1
-                        md:col-span-1
-                        px-4
-                        z-10
-                        pt-8
-                    "
-                >
-                    <img 
-                        className="
-                            w-full
-                            h-auto
-                            rounded-full
-                        " 
-                        src="images/tech/peter.jpeg" 
-                        alt="Peter" 
-                    />
-                </div>
-            </div>
-            
-            <div className="section-header">
-                <div 
-                    className="
                         text-white
                         px-4
                         col-span-2
@@ -340,6 +263,82 @@ const Main = () => {
                 </div>
             </div>
 
+            <div className="section-header">
+                <div 
+                    className="
+                        text-neutral-100
+                        px-4
+                        col-span-2
+                        md:col-span-1
+                        text-center
+                        md:text-left
+                        items-center
+                    "
+                >
+                    <div className="flex flex-col">
+                        { /* eslint-disable-next-line react/no-unescaped-entities */ }
+                        <h1 className="font-bold text-5xl ">Hi, I'm Peter Jeng!</h1>
+                        <h3 className="text-2xl leading-8 py-4 text-neutral-300">FullStack developer based in New York City, US.</h3>
+                        <div className="flex flex-row justify-center md:justify-normal items-center">
+                            <a href="https://www.linkedin.com/in/peterjeng/" target="_blank" rel="noopener noreferrer">
+                                <img src="images/tech/linkedIn.svg" alt="linkedIn" className="w-10 h-10 rounded-md hover:opacity-50 bg-neutral-600 border-2 border-neutral-600"/>
+                            </a>
+                        </div>
+                        
+                    </div>
+                    <div className="flex flex-col pt-20">
+                        <h3 className="text-2xl leading-8">Project Development:</h3>
+                        <div className="flex flex-row gap-6 pt-4">
+                            <a href="https://react.dev/" target="_blank" rel="noopener noreferrer">
+                                <img src="images/tech/react.svg" alt="React" className="tech-logo"/>
+                            </a>
+                            <a href="https://nextjs.org/" target="_blank" rel="noopener noreferrer">
+                                <img src="images/tech/nextjs.png" alt="NextJS" className="tech-logo"/>
+                            </a>
+                            <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer">
+                                <img src="images/tech/tailwind.svg" alt="Tailwind" className="tech-logo"/>
+                            </a>
+                            <a href="https://www.prisma.io/" target="_blank" rel="noopener noreferrer">
+                                <img src="images/tech/prisma.svg" alt="Prisma" className="tech-logo bg-neutral-50"/>
+                            </a>
+                            <a href="https://next-auth.js.org/" target="_blank" rel="noopener noreferrer">
+                                <img src="images/tech/nextauth.png" alt="NextAuth" className="tech-logo"/>
+                            </a>
+                            <a href="https://www.mongodb.com/" target="_blank" rel="noopener noreferrer">
+                                <img src="images/tech/mongoDB.svg" alt="MongoDB" className="tech-logo"/>
+                            </a>
+                            <a href="https://vercel.com/" target="_blank" rel="noopener noreferrer">
+                                <img src="images/tech/vercel-light.png" alt="Vercel" className="tech-logo"/>
+                            </a>
+                        </div>
+                    </div>
+                   
+                </div>
+    
+                <div
+                    className="
+                        col-start-1
+                        row-start-2
+                        col-span-2
+                        md:col-start-2
+                        md:row-start-1
+                        md:col-span-1
+                        px-4
+                        z-10
+                        pt-8
+                    "
+                >
+                    <img 
+                        className="
+                            w-full
+                            h-auto
+                            rounded-full
+                        " 
+                        src="images/tech/peter.jpeg" 
+                        alt="Peter" 
+                    />
+                </div>
+            </div>
         </div>
        
   )
