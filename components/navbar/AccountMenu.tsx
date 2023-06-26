@@ -28,33 +28,41 @@ const AccountMenu = () => {
                     gap-1
                 "
             >
-                
-                <MenuItem 
-                    key="username" 
-                    label="Username" 
-                    onClick={() => {}}
-                    imageSrc="/images/default-blue.png"
-                />
                 <MenuItem 
                     key="profile" 
                     label="Manage Profiles" 
-                    onClick={() => {}}
+                    path="/profiles/manage"
                     icon={LuPencil}
                 />
                 <MenuItem 
                     key="account" 
                     label="Account" 
-                    onClick={() => {}} 
+                    path="account"
                     icon={IoPersonOutline}
                 />
                 <MenuItem 
                     key="help" 
                     label="Help Center" 
-                    onClick={() => {}} 
+                    path="help" 
                     icon={IoHelpCircleOutline}
                 />
                 <hr className="border-gray-600" />
-                <MenuItem key="signout" label="Sign out of Netflix" onClick={signOut} center />
+                <div 
+                    onClick={() => signOut()} 
+                    className="
+                        px-3 
+                        py-3 
+                        text-sm 
+                        text-white 
+                        hover:text-gray-300 
+                        hover:bg-neutral-900
+                        transition
+                        text-center
+                        
+                    "
+                >
+                    Sign out of Netflix
+                </div>
             </div>
         </div>
      );
