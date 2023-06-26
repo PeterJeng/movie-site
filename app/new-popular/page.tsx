@@ -1,6 +1,6 @@
 import NoFeature from "@/components/NoFeature";
 import Navbar from "@/components/navbar/Navbar";
-import { NEW_AND_POPULAR } from "@/components/navbar/Navbar";
+import { NEW_AND_POPULAR } from "@/types";
 
 const NewPopular = () => {
     return ( 
