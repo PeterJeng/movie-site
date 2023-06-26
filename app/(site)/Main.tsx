@@ -78,15 +78,12 @@ const Main = () => {
                                 text-3xl
                             "
                         >
-                            Ready to watch? Enter your email to create or restart your membership.
+                            Ready to watch? Enter your email to register an account.
                         </div>
-                        <div className="my-5">
-                            <GetStartedForm />
-                        </div>
+                        
                     </div>
                 </div>
             </div>
-
             
             <div className="section-header">
                 <div 
