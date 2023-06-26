@@ -1,5 +1,6 @@
 'use client';
 
+import SignInButton from "@/components/login/SignInButton";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
@@ -38,22 +39,7 @@ const Main = () => {
                             "
                         />
         
-                        <button 
-                            className="
-                                px-4
-                                py-1.5
-                                cursor-pointer 
-                                rounded-md 
-                                border-spacing-0 
-                                bg-netflix-red
-                                text-white
-                                hover:bg-opacity-70
-                                duration-300
-                                transform
-                            "
-                        >
-                            Sign In
-                        </button>
+                        <SignInButton />
                     </nav>
                     <div 
                         className="
@@ -98,76 +84,185 @@ const Main = () => {
                 </div>
             </div>
 
-            <div>
+            
+            <div className="section-header">
                 <div 
                     className="
-                        w-full
-                        pt-6
-                        pb-11
-                        items-center
-                        grid-cols-2
-                        inline-grid
-                        relative
-                        md:px-20
-                        lg:px-30
-                        xl:px-40
-                        2xl:px-60
-                        px-10
+                        text-white
+                        px-4
+                        col-span-2
+                        md:col-span-1
+                        text-center
+                        md:text-left
                     "
                 >
-                    <div 
-                        className="
-                            text-white
-                            px-4
-                            col-span-2
-                            md:col-span-1
-                            text-center
-                            md:text-left
-                        "
-                    >
-                        <h1 className="font-bold text-5xl">Enjoy on your TV</h1>
-                        <h3 className="text-2xl leading-8 pt-4">Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</h3>
-                    </div>
-       
-                    <img 
-                        className="
-                            w-full
-                            col-start-1
-                            row-start-2
-                            col-span-2
-                            md:col-start-2
-                            md:row-start-1
-                            md:col-span-1
-                            px-4
-                            z-10
-                        " 
-                        src="images/tv.png" 
-                        alt="Netflix TV" 
-                    />
-                    <video
-                        className="
-                            relative
-                            w-full
-                            h-[54%]
-                            col-start-1
-                            row-start-2
-                            col-span-2
-                            md:col-start-2
-                            md:row-start-1
-                            md:col-span-1
-                            z-5
-                        "
-                        src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-0819.m4v"
-                        autoPlay 
-                        playsInline 
-                        muted 
-                        loop 
-                    />
-          
-                    
+                    <h1 className="font-bold text-5xl">Enjoy on your TV</h1>
+                    <h3 className="text-2xl leading-8 pt-4">Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</h3>
+                </div>
+    
+                <img 
+                    className="
+                        w-full
+                        col-start-1
+                        row-start-2
+                        col-span-2
+                        md:col-start-2
+                        md:row-start-1
+                        md:col-span-1
+                        px-4
+                        z-10
+                    " 
+                    src="images/tv.png" 
+                    alt="Netflix TV" 
+                />
+                <video
+                    className="
+                        relative
+                        w-full
+                        h-[55%]
+                        col-start-1
+                        row-start-2
+                        col-span-2
+                        md:col-start-2
+                        md:row-start-1
+                        md:col-span-1
+                        z-5
+                        -mt-[3%]
+                    "
+                    src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-0819.m4v"
+                    autoPlay 
+                    playsInline 
+                    muted 
+                    loop 
+                />
+        
+                
+            </div>
+        
+            <div className="section-header">
+                <img 
+                    className="
+                        w-full
+                        col-start-1
+                        row-start-2
+                        col-span-2
+                        md:col-start-1
+                        md:row-start-1
+                        md:col-span-1
+                        px-4
+                        z-10
+                    " 
+                    src="images/devices.png" 
+                    alt="Netflix TV" 
+                />
+
+                <video
+                    className="
+                        relative
+                        w-full
+                        h-[45%]
+                        col-start-1
+                        row-start-2
+                        col-span-2
+                        md:col-start-1
+                        md:row-start-1
+                        md:col-span-1
+                        z-5
+                        -mt-[25%]
+                    "
+                    src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-devices.m4v"
+                    autoPlay 
+                    playsInline 
+                    muted 
+                    loop 
+                />
+                <div 
+                    className="
+                        text-white
+                        px-4
+                        col-start-1
+                        col-span-2
+                        row-start-1
+                        md:col-span-1
+                        md:col-start-2
+                        md:row-start-1
+                        text-center
+                        md:text-left
+                    "
+                >
+                    <h1 className="font-bold text-5xl">Watch everywhere</h1>
+                    <h3 className="text-2xl leading-8 pt-4">Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.</h3>
                 </div>
             </div>
+            
+            <div className="section-header">
+                <div 
+                    className="
+                        text-white
+                        px-4
+                        col-span-2
+                        md:col-span-1
+                        text-center
+                        md:text-left
+                    "
+                >
+                    <h1 className="font-bold text-5xl">Create profiles for kids</h1>
+                    <h3 className="text-2xl leading-8 pt-4">Send kids on adventures with their favorite characters in a space made just for them—free with your membership.</h3>
+                </div>
+    
+                <img 
+                    className="
+                        w-full
+                        col-start-1
+                        row-start-2
+                        col-span-2
+                        md:col-start-2
+                        md:row-start-1
+                        md:col-span-1
+                        px-4
+                        z-10
+                    " 
+                    src="images/kids.png" 
+                    alt="Netflix TV" 
+                />
+            </div>
+            
+            <div className="section-header">
+                <img 
+                    className="
+                        w-full
+                        col-start-1
+                        row-start-2
+                        col-span-2
+                        md:col-start-1
+                        md:row-start-1
+                        md:col-span-1
+                        px-4
+                        z-10
+                    " 
+                    src="images/mobile.jpg" 
+                    alt="Netflix TV" 
+                />
 
+                <div 
+                    className="
+                        text-white
+                        px-4
+                        col-start-1
+                        col-span-2
+                        row-start-1
+                        md:col-span-1
+                        md:col-start-2
+                        md:row-start-1
+                        text-center
+                        md:text-left
+                    "
+                >
+                    <h1 className="font-bold text-5xl">Download your shows to watch offline</h1>
+                    <h3 className="text-2xl leading-8 pt-4">Only available on ad-free plans.</h3>
+                </div>
+            </div>
+            
         </div>
        
   )

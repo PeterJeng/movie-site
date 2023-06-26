@@ -10,6 +10,7 @@ import MovieList from "@/components/movies/MovieList";
 import Navbar from "@/components/navbar/Navbar";
 import { MovieProvider } from "@/hooks/useMovieContext";
 import { UserProvider } from "@/hooks/useUserContext";
+import { HOME } from "@/components/navbar/Navbar";
 
 const Browse = async () => {
     const randomMovie = await getRandomMovie();
@@ -22,7 +23,7 @@ const Browse = async () => {
             <UserProvider currentUser={currentUser}>
                 <MovieProvider movies={movieList}>
                     <InfoModal />
-                    <Navbar />
+                    <Navbar currentPage={HOME} />
                     {randomMovie && <Billboard randomMovie={randomMovie} />}
                     <div className="pb-40">
                         <MovieList title="Trending Now" movieList={movieList} />

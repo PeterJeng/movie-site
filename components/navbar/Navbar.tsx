@@ -9,40 +9,49 @@ import BrowseMenu from "./BrowseMenu";
 import Dropdown from "../Dropdown";
 import AccountMenu from "./AccountMenu";
 
-interface NavbarProps {
-    
-}
+export const HOME = 'Home';
+export const TV_SHOWS = 'TV Shows';
+export const MOVIES = 'Movies';
+export const NEW_AND_POPULAR = 'New & Popular';
+export const MY_LIST = "My List";
+export const LANGUAGES = "Browse by Languages";
 
 export const navbarMenuList = [
     {
-        label: "Home",
-        onClick: () => {}
+        label: HOME,
+        path: "/browse"
     },
     {
-        label: "TV Shows",
-        onClick: () => {}
+        label: TV_SHOWS,
+        path: "/shows"
     },
     {
-        label: "Movies",
-        onClick: () => {}
+        label: MOVIES,
+        path: "/movies"
     },
     {
-        label: "New & Popular",
-        onClick: () => {}
+        label: NEW_AND_POPULAR,
+        path: "/new-popular"
     },
     {
-        label: "My List",
-        onClick: () => {}
+        label: MY_LIST,
+        path: "/my-list"
     },
     {
-        label: "Browse by Languages",
-        onClick: () => {}
+        label: LANGUAGES,
+        path: "/languages"
     }
 ]
 
 const TOP_OFFSET = 66;
 
-const Navbar: React.FC<NavbarProps> = () => {
+interface NavbarProps {
+    currentPage: string;
+}
+
+const Navbar: React.FC<NavbarProps> = ({
+    currentPage
+}) => {
     const [showBackground, setShowBackground] = useState(false);
 
     useEffect(() => {
@@ -88,7 +97,7 @@ const Navbar: React.FC<NavbarProps> = () => {
                 >
                     {
                         navbarMenuList.map(item => (
-                            <NavItem key={item.label} label={item.label} />
+                            <NavItem key={item.label} label={item.label} path={item.path} isActive={currentPage === item.label} />
                         ))
                     }
                 </div>
