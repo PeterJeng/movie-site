@@ -288,9 +288,12 @@ const Main = () => {
                     </div>
                     <div className="flex flex-col pt-20">
                         <h3 className="text-2xl leading-8">Project Development:</h3>
-                        <div className="flex flex-row gap-6 pt-4">
+                        <div className="flex flex-row flex-wrap gap-6 pt-4">
                             <a href="https://react.dev/" target="_blank" rel="noopener noreferrer">
                                 <img src="images/tech/react.svg" alt="React" className="tech-logo"/>
+                            </a>
+                            <a href="https://www.typescriptlang.org//" target="_blank" rel="noopener noreferrer">
+                                <img src="images/tech/typescript.svg" alt="TypeScript" className=" w-10 h-10 hover:opacity-50"/>
                             </a>
                             <a href="https://nextjs.org/" target="_blank" rel="noopener noreferrer">
                                 <img src="images/tech/nextjs.png" alt="NextJS" className="tech-logo"/>
