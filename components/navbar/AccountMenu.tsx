@@ -54,6 +54,7 @@ const AccountMenu = () => {
                 <hr className="border-gray-600" />
                 <div 
                     onClick={() => signOut({
+                        redirect: true,
                         callbackUrl: '/auth'
                     })} 
                     className="
