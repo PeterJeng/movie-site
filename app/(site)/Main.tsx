@@ -279,9 +279,12 @@ const Main = () => {
                         { /* eslint-disable-next-line react/no-unescaped-entities */ }
                         <h1 className="font-bold text-5xl ">Hi, I'm Peter Jeng!</h1>
                         <h3 className="text-2xl leading-8 py-4 text-neutral-300">FullStack developer based in New York City, US.</h3>
-                        <div className="flex flex-row justify-center md:justify-normal items-center">
+                        <div className="flex flex-row gap-6 justify-center md:justify-normal items-center">
                             <a href="https://www.linkedin.com/in/peterjeng/" target="_blank" rel="noopener noreferrer">
                                 <img src="images/tech/linkedIn.svg" alt="linkedIn" className="w-10 h-10 rounded-md hover:opacity-50 bg-neutral-600 border-2 border-neutral-600"/>
+                            </a>
+                            <a href="https://github.com/PeterJeng" target="_blank" rel="noopener noreferrer">
+                                <img src="images/tech/github.svg" alt="Github" className="tech-logo bg-neutral-600 border-2 border-neutral-600"/>
                             </a>
                         </div>
                         
